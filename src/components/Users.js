@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'net';
+import { connect } from 'react-redux';
 
 class Users extends Component {
 
@@ -10,6 +10,7 @@ class Users extends Component {
   render() {
     return (
       <div>
+        <p>Total users: {this.props.users.length}</p>
         <ul>
           {this.renderUsers()}
         </ul>
