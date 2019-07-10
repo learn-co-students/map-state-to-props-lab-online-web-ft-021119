@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'net';
 
 class Users extends Component {
+
+  renderUsers = () => {
+    return this.props.users.map(user => <li>{user.username}</li> )
+  }
 
   render() {
     return (
       <div>
         <ul>
-          Users!
+          {this.renderUsers()}
         </ul>
       </div>
     )
@@ -14,5 +19,8 @@ class Users extends Component {
 }
 
 //add mapStateToProps here
+const mapStateToProps = (state) => {
+  return {users: state.users}
+}
 
-export default Users
+export default connect(mapStateToProps)(Users)
